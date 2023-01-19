@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleButton?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="690.0" prefWidth="800.0" styleClass="bgPane" stylesheets="@css/UniversalStyles.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.car_rental_system.EmployeeController">
+<TabPane layoutY="59.0" prefHeight="632.0" prefWidth="800.0" tabClosingPolicy="UNAVAILABLE">
+   <tabs>
+      <Tab text="Lista wszystkich aut">
+         <content>
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+               <children>
+                  <VBox alignment="CENTER" layoutX="-1.0" layoutY="-3.0" prefHeight="193.0" prefWidth="659.0">
+                     <children>
+                        <TableView fx:id="show_cars" prefHeight="604.0" prefWidth="868.0">
+                           <columns>
+                              <TableColumn fx:id="col_reg" prefWidth="91.0" text="REJESTRACJA" />
+                              <TableColumn fx:id="col_brand" prefWidth="82.0" text="MARKA" />
+                              <TableColumn fx:id="col_model" prefWidth="77.0" text="MODEL" />
+                              <TableColumn fx:id="col_year" prefWidth="115.0" text="ROK PRODUKCJI" />
+                              <TableColumn fx:id="col_rent" prefWidth="122.0" text="WYPOŻYCZALNIA" />
+                              <TableColumn fx:id="col_price" prefWidth="74.0" text="CENA" />
+                              <TableColumn fx:id="col_ava" prefWidth="97.0" text="DOSTĘPNOŚĆ" />
+                           </columns>
+                        </TableView>
+                     </children>
+                  </VBox>
+                  <VBox layoutX="14.0" layoutY="212.0" prefHeight="334.0" prefWidth="433.0">
+                     <children>
+                        <TextField fx:id="plate" alignment="TOP_LEFT" prefHeight="30.0" prefWidth="0.0" promptText="Rejestracja">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </TextField>
+                        <Separator opacity="0.0" orientation="VERTICAL" prefHeight="30.0" prefWidth="70.0" />
+                        <TextField fx:id="brand" alignment="TOP_LEFT" prefHeight="30.0" prefWidth="0.0" promptText="Marka">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </TextField>
+                        <Separator opacity="0.0" orientation="VERTICAL" prefHeight="30.0" prefWidth="86.0" />
+                        <TextField fx:id="model" alignment="TOP_LEFT" prefHeight="30.0" prefWidth="0.0" promptText="Model">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </TextField>
+                        <Separator opacity="0.0" orientation="VERTICAL" prefHeight="30.0" prefWidth="86.0" />
+                        <TextField fx:id="year" alignment="TOP_LEFT" prefHeight="30.0" prefWidth="0.0" promptText="Rok produkcji">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </TextField>
+                        <Separator opacity="0.0" orientation="VERTICAL" prefHeight="30.0" prefWidth="86.0" />
+                        <TextField fx:id="price" prefHeight="30.0" prefWidth="0.0" promptText="Cena za dzień">
+                              <cursor>
+                                 <Cursor fx:constant="HAND" />
+                              </cursor></TextField>
+                        <Separator opacity="0.0" orientation="VERTICAL" prefHeight="30.0" prefWidth="86.0" />
+                           <TextField fx:id="ava" editable="false" prefHeight="3.0" prefWidth="433.0" promptText="Wybierz dostępność">
+                              <cursor>
+                                 <Cursor fx:constant="CLOSED_HAND" />
+                              </cursor>
+                           </TextField>
+                        <Separator opacity="0.0" orientation="VERTICAL" prefHeight="30.0" prefWidth="86.0" />
+                           <HBox prefHeight="53.0" prefWidth="433.0">
+                              <children>
+                                 <Separator prefHeight="42.0" prefWidth="52.0" visible="false" />
+                                 <ToggleButton fx:id="toggle_available" mnemonicParsing="false" onAction="#availableButton" prefHeight="35.0" prefWidth="85.0" text="Dostępny">
+                                    <cursor>
+                                       <Cursor fx:constant="HAND" />
+                                    </cursor>
+                                 </ToggleButton>
+                                 <Separator prefHeight="42.0" prefWidth="43.0" visible="false" />
+                                 <ToggleButton fx:id="toggle_not_available" mnemonicParsing="false" onAction="#availableButton" prefHeight="35.0" prefWidth="85.0" text="Niedostępny">
+                                    <cursor>
+                                       <Cursor fx:constant="HAND" />
+                                    </cursor>
+                                 </ToggleButton>
+                                 <Separator prefHeight="24.0" prefWidth="43.0" visible="false" />
+                                 <ToggleButton fx:id="toggle_clear" mnemonicParsing="false" onAction="#availableButton" prefHeight="35.0" prefWidth="123.0" text="Wyczyść formularz" />
+                              </children>
+                           </HBox>
+                        <Separator opacity="0.0" orientation="VERTICAL" prefHeight="30.0" prefWidth="86.0" />
+                     </children>
+                  </VBox>
+                  <Button layoutX="555.0" layoutY="258.0" mnemonicParsing="false" onAction="#insertNewCar" prefHeight="34.0" prefWidth="128.0" text="Dodaj" />
+                  <Button layoutX="555.0" layoutY="318.0" mnemonicParsing="false" onAction="#deleteFromCarList" onMouseClicked="#deleteFromCarList" prefHeight="34.0" prefWidth="128.0" text="Usuń" />
+                  <Button layoutX="555.0" layoutY="378.0" mnemonicParsing="false" onAction="#editCarList" prefHeight="34.0" prefWidth="128.0" text="Edytuj" />
+               </children>
+            </AnchorPane>
+         </content>
+      </Tab>
+      <Tab text="Wypożyczenie auta">
+         <content>
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="564.0" prefWidth="785.0">
+               <children>
+                  <VBox alignment="CENTER" layoutX="-1.0" layoutY="-3.0" prefHeight="193.0" prefWidth="659.0">
+                     <children>
+                        <TableView fx:id="rent_show_cars" prefHeight="193.0" prefWidth="666.0">
+                           <columns>
+                              <TableColumn fx:id="col_rent_reg" prefWidth="113.0" text="REJESTRACJA" />
+                              <TableColumn fx:id="col_rent_brand" prefWidth="105.0" text="MARKA" />
+                              <TableColumn fx:id="col_rent_model" prefWidth="115.0" text="MODEL" />
+                              <TableColumn fx:id="col_rent_rent" minWidth="0.0" prefWidth="194.0" text="WYPOŻYCZALNIA" />
+                              <TableColumn fx:id="col_rent_price" prefWidth="133.0" text="CENA" />
+                           </columns>
+                        </TableView>
+                     </children>
+                  </VBox>
+                  <Button fx:id="btn_invoiceAndRent" layoutX="555.0" layoutY="415.0" mnemonicParsing="false" onAction="#generateInvoiceAndRentCar" prefHeight="34.0" prefWidth="190.0" text="Wypożycz i wygeneruj fakturę" />
+                  <VBox layoutX="14.0" layoutY="206.0" prefHeight="340.0" prefWidth="433.0">
+                     <children>
+                        <TextField fx:id="plate2" alignment="TOP_LEFT" editable="false" prefHeight="36.0" prefWidth="321.0" promptText="Rejestracja">
+                           <cursor>
+                              <Cursor fx:constant="CLOSED_HAND" />
+                           </cursor>
+                        </TextField>
+                        <Separator opacity="0.0" orientation="VERTICAL" prefHeight="1.0" prefWidth="70.0" />
+                        <TextField fx:id="brand2" alignment="TOP_LEFT" editable="false" prefHeight="26.0" prefWidth="118.0" promptText="Marka">
+                           <cursor>
+                              <Cursor fx:constant="CLOSED_HAND" />
+                           </cursor>
+                        </TextField>
+                        <Separator opacity="0.0" orientation="VERTICAL" prefHeight="1.0" prefWidth="86.0" />
+                        <TextField fx:id="model2" alignment="TOP_LEFT" editable="false" prefHeight="26.0" prefWidth="118.0" promptText="Model">
+                           <cursor>
+                              <Cursor fx:constant="CLOSED_HAND" />
+                           </cursor>
+                        </TextField>
+                        <Separator opacity="0.0" orientation="VERTICAL" prefHeight="1.0" prefWidth="86.0" />
+                        <TextField fx:id="rental2" alignment="TOP_LEFT" editable="false" prefHeight="26.0" prefWidth="118.0" promptText="Wypożyczalnia">
+                           <cursor>
+                              <Cursor fx:constant="CLOSED_HAND" />
+                           </cursor>
+                        </TextField>
+                        <Separator opacity="0.0" orientation="VERTICAL" prefHeight="1.0" prefWidth="86.0" />
+                        <TextField fx:id="price_per_day" alignment="TOP_LEFT" editable="false" prefHeight="26.0" prefWidth="118.0" promptText="Cena za dzień">
+                           <cursor>
+                              <Cursor fx:constant="CLOSED_HAND" />
+                           </cursor>
+                        </TextField>
+                        <Separator opacity="0.0" orientation="VERTICAL" prefHeight="1.0" prefWidth="86.0" />
+                        <TextField fx:id="name" promptText="Imię" />
+                        <Separator opacity="0.0" orientation="VERTICAL" prefHeight="1.0" prefWidth="86.0" />
+                        <TextField fx:id="surname" promptText="Nazwisko" />
+                        <Separator opacity="0.0" orientation="VERTICAL" prefHeight="1.0" prefWidth="86.0" />
+                        <TextField fx:id="pesel" promptText="PESEL" />
+                        <Separator opacity="0.0" orientation="VERTICAL" prefHeight="1.0" prefWidth="86.0" />
+                        <TextField fx:id="days_textfield" editable="false" promptText="Ilość dni" />
+                        <Separator opacity="0.0" orientation="VERTICAL" prefHeight="1.0" prefWidth="86.0" />
+                        <TextField fx:id="phone_nr" promptText="Numer telefonu" />
+                     </children>
+                  </VBox>
+                     <DatePicker fx:id="dni" editable="false" layoutX="576.0" layoutY="260.0" prefWidth="148.0" promptText="Wybierz datę" />
+                  <TextField fx:id="cena" alignment="CENTER" editable="false" layoutX="576.0" layoutY="291.0" promptText="Cena za dzień" />
+                  <TextField fx:id="cena_final" alignment="CENTER" editable="false" layoutX="576.0" layoutY="323.0" promptText="Cena" />
+                  <Text fill="WHITE" layoutX="508.0" layoutY="277.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Data zwrotu" />
+                  <Text fill="WHITE" layoutX="498.0" layoutY="308.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cena za dzień" />
+                  <Text fill="WHITE" layoutX="544.0" layoutY="340.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cena" />
+               </children>
+            </AnchorPane>
+         </content>
+      </Tab>
+      <Tab text="Zwrot auta">
+         <content>
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="541.0" prefWidth="800.0">
+               <children>
+                  <VBox alignment="CENTER" layoutX="-1.0" layoutY="-3.0" prefHeight="193.0" prefWidth="659.0">
+                     <children>
+                        <TableView fx:id="show_wished_cars" prefHeight="193.0" prefWidth="666.0">
+                           <columns>
+                              <TableColumn fx:id="col_wished_id" prefWidth="117.0" text="ID WYPOŻYCZENIA" />
+                                 <TableColumn fx:id="col_id_car" prefWidth="63.0" text="ID AUTA" />
+                              <TableColumn fx:id="col_name" prefWidth="115.0" text="IMIĘ" />
+                              <TableColumn fx:id="col_surname" prefWidth="96.0" text="NAZWISKO" />
+                              <TableColumn fx:id="col_pesel" prefWidth="65.0" text="PESEL" />
+                              <TableColumn fx:id="col_phone_nr" prefWidth="99.0" text="NR TELEFONU" />
+                              <TableColumn fx:id="col_peroid" prefWidth="103.0" text="OKRES WYPOŻYCZENIA" />
+                           </columns>
+                        </TableView>
+                     </children>
+                  </VBox>
+                  <Button layoutX="686.0" layoutY="609.0" mnemonicParsing="false" prefHeight="34.0" text="WYGENERUJ POTWIERDZENIE ZWROTU" />
+                  <Button layoutX="686.0" layoutY="669.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="228.0" text="ZWRÓĆ SAMOCHÓD" />
+                  <VBox layoutX="14.0" layoutY="206.0" prefHeight="340.0" prefWidth="433.0">
+                     <children>
+                        <Separator layoutX="10.0" layoutY="35.0" orientation="VERTICAL" prefHeight="27.0" prefWidth="272.0" visible="false" />
+                        <TextField fx:id="return_id" editable="false" promptText="ID wypożyczenia" />
+                        <Separator orientation="VERTICAL" prefHeight="27.0" prefWidth="272.0" visible="false" />
+                           <TextField fx:id="car_id" editable="false" promptText="ID auta" />
+                           <Separator orientation="VERTICAL" prefHeight="27.0" prefWidth="272.0" visible="false" />
+                        <TextField fx:id="return_name" editable="false" layoutX="10.0" layoutY="10.0" promptText="Imię" />
+                        <Separator orientation="VERTICAL" prefHeight="27.0" prefWidth="272.0" visible="false" />
+                        <TextField fx:id="return_surname" editable="false" layoutX="10.0" layoutY="35.0" promptText="Nazwisko" />
+                        <Separator orientation="VERTICAL" prefHeight="27.0" prefWidth="272.0" visible="false" />
+                        <TextField fx:id="return_pesel" editable="false" layoutX="10.0" layoutY="60.0" promptText="Pesel" />
+                        <Separator orientation="VERTICAL" prefHeight="27.0" prefWidth="272.0" visible="false" />
+                        <TextField fx:id="return_phone" editable="false" layoutX="10.0" layoutY="85.0" promptText="Nr telefonu" />
+                        <Separator orientation="VERTICAL" prefHeight="27.0" prefWidth="272.0" visible="false" />
+                        <TextField fx:id="return_days" editable="false" layoutX="10.0" layoutY="110.0" promptText="Ilość dni" />
+                     </children>
+                  </VBox>
+                  <Button layoutX="549.0" layoutY="235.0" mnemonicParsing="false" onAction="#returnCar" prefHeight="37.0" prefWidth="149.0" text="Zwróć" />
+               </children>
+            </AnchorPane>
+         </content>
+      </Tab>
+   </tabs>
+</TabPane>
+<Button fx:id="logout" layoutX="676.0" layoutY="20.0" mnemonicParsing="false" onAction="#logout" prefHeight="30.0" prefWidth="102.0" text="Wyloguj" />
+</AnchorPane>

@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="680.0" prefWidth="980.0" styleClass="anchorPane" stylesheets="@css/LoginPanelStyles.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.car_rental_system.LoginController">
+    <children>
+        <Pane layoutY="140.0" prefHeight="400.0" prefWidth="980.0" styleClass="pane" stylesheets="@css/LoginPanelStyles.css">
+            <children>
+                <VBox alignment="CENTER" layoutX="14.0" layoutY="-40.0" prefHeight="480.0" prefWidth="480.0" styleClass="vbox" stylesheets="@css/LoginPanelStyles.css">
+                    <children>
+                        <Label text="Logowanie" textFill="WHITE">
+                            <font>
+                                <Font name="System Bold Italic" size="20.0" />
+                            </font>
+                            <VBox.margin>
+                                <Insets />
+                            </VBox.margin>
+                        </Label>
+                        <HBox prefHeight="45.0" prefWidth="200.0" styleClass="hbox" stylesheets="@css/LoginPanelStyles.css">
+                            <children>
+                                <TextField fx:id="txt_login" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onAction="#enterKeyPressed" promptText="Login" styleClass="login-text-field" stylesheets="@css/LoginPanelStyles.css" HBox.hgrow="ALWAYS">
+                                    <HBox.margin>
+                                        <Insets />
+                                    </HBox.margin>
+                                    <font>
+                                        <Font name="System Bold Italic" size="15.0" />
+                                    </font>
+                                </TextField>
+                            </children>
+                            <VBox.margin>
+                                <Insets left="40.0" right="40.0" top="20.0" />
+                            </VBox.margin>
+                        </HBox>
+                        <HBox layoutX="25.0" layoutY="258.0" prefHeight="45.0" prefWidth="200.0" styleClass="hbox" stylesheets="@css/LoginPanelStyles.css">
+                            <VBox.margin>
+                                <Insets bottom="20.0" left="40.0" right="40.0" top="20.0" />
+                            </VBox.margin>
+                            <children>
+                                <PasswordField fx:id="txt_pass" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onAction="#enterKeyPressed" promptText="Hasło" styleClass="login-text-field" stylesheets="@css/LoginPanelStyles.css" HBox.hgrow="ALWAYS">
+                                    <font>
+                                        <Font name="System Bold Italic" size="15.0" />
+                                    </font>
+                                </PasswordField>
+                            </children>
+                        </HBox>
+                        <HBox alignment="CENTER_RIGHT" layoutX="10.0" layoutY="280.0" prefHeight="45.0" prefWidth="200.0" styleClass="hbox" stylesheets="@css/LoginPanelStyles.css">
+                            <VBox.margin>
+                                <Insets left="40.0" right="40.0" top="10.0" />
+                            </VBox.margin>
+                            <children>
+                                <Button fx:id="forget_pass_btn" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onMouseClicked="#goToResetPassword" styleClass="forget-pass-btn" stylesheets="@css/LoginPanelStyles.css" text="Zapomniałeś hasła?" HBox.hgrow="ALWAYS">
+                                    <font>
+                                        <Font name="System Bold Italic" size="15.0" />
+                                    </font>
+                                    <HBox.margin>
+                                        <Insets left="30.0" right="30.0" />
+                                    </HBox.margin>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                                </Button>
+                                <Button fx:id="login_btn" mnemonicParsing="false" prefHeight="39.0" prefWidth="120.0" styleClass="login-btn" stylesheets="@css/LoginPanelStyles.css" text="Zaloguj się">
+                                    <font>
+                                        <Font name="System Bold Italic" size="15.0" />
+                                    </font>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                                </Button>
+                            </children>
+                        </HBox>
+                    </children>
+                </VBox>
+                <Label layoutX="958.0" onMouseClicked="#Close" text="X" textFill="WHITE">
+                    <font>
+                        <Font name="System Bold" size="25.0" />
+                    </font>
+                </Label>
+            </children></Pane>
+    </children>
+</AnchorPane>

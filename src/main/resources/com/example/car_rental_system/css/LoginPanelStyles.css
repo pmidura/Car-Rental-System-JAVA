@@ -1,0 +1,29 @@
+.pane {
+    -fx-background-image: url("../img/LoginPanelBG.jpg");
+}
+
+.vbox {
+    -fx-background-color: #333333;
+}
+
+.anchorPane {
+    -fx-background-color: transparent;
+}
+
+.login-btn {
+    -fx-background-color: #fc8403;
+    -fx-background-radius: 5px;
+    -fx-text-fill: #FFFFFF;
+}
+
+.forget-pass-btn {
+    -fx-background-color: transparent;
+    -fx-text-fill: #FFFFFF;
+}
+
+.login-text-field {
+    -fx-background-color: transparent;
+    -fx-text-fill: #FFFFFF;
+    -fx-border-color: white;
+    -fx-border-width: 0px 0px 1px 0px;
+}

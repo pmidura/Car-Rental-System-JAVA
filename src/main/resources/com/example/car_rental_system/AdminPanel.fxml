@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="690.0" prefWidth="800.0" styleClass="bgPane" stylesheets="@css/UniversalStyles.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.car_rental_system.AdminController">
+   <children>
+      <TabPane layoutY="59.0" prefHeight="632.0" prefWidth="800.0" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+          <Tab text="Lista pracowników">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="613.0" prefWidth="800.0">
+                     <children>
+                        <VBox layoutX="-2.0" layoutY="-1.0" prefHeight="588.0" prefWidth="807.0">
+                           <children>
+                              <TableView fx:id="users_table" prefHeight="279.0" prefWidth="807.0">
+                                <columns>
+                                  <TableColumn fx:id="col_pesel" prefWidth="96.0" text="PESEL" />
+                                  <TableColumn fx:id="col_user_name" prefWidth="103.0" text="Imię" />
+                                    <TableColumn fx:id="col_user_surname" prefWidth="119.0" text="Nazwisko" />
+                                    <TableColumn fx:id="col_login" prefWidth="139.0" text="Login" />
+                                    <TableColumn fx:id="col_password" prefWidth="115.0" text="Hasło" />
+                                    <TableColumn fx:id="col_role" prefWidth="124.0" text="Stanowisko" />
+                                    <TableColumn fx:id="col_user_phone" prefWidth="104.0" text="Nr telefonu" />
+                                </columns>
+                              </TableView>
+                              <TabPane />
+                           </children>
+                        </VBox>
+                        <TextField fx:id="txt_pesel" layoutX="22.0" layoutY="325.0" prefHeight="30.0" prefWidth="550.0" promptText="PESEL" />
+                        <TextField fx:id="txt_name" layoutX="22.0" layoutY="365.0" prefHeight="30.0" prefWidth="550.0" promptText="Imię" />
+                        <TextField fx:id="txt_surname" layoutX="22.0" layoutY="405.0" prefHeight="30.0" prefWidth="550.0" promptText="Nazwisko" />
+                        <TextField fx:id="txt_login" layoutX="22.0" layoutY="445.0" prefHeight="30.0" prefWidth="550.0" promptText="Login" />
+                        <TextField fx:id="txt_phone" layoutX="22.0" layoutY="525.0" prefHeight="30.0" prefWidth="550.0" promptText="Numer telefonu" />
+                        <PasswordField fx:id="txt_password" layoutX="22.0" layoutY="485.0" prefHeight="30.0" prefWidth="550.0" promptText="Hasło" />
+                        <ComboBox fx:id="roles_items" layoutX="579.0" layoutY="325.0" prefHeight="30.0" prefWidth="200.0" promptText="Stanowisko" />
+                        <ComboBox fx:id="rentals_items" layoutX="580.0" layoutY="365.0" prefHeight="30.0" prefWidth="200.0" promptText="Wypożyczalnia" />
+                        <Button fx:id="add_employee" layoutX="580.0" layoutY="365.0" mnemonicParsing="false" onMouseClicked="#showTextFieldsComboBoxButtonOnAdding" prefHeight="30.0" prefWidth="200.0" text="Dodaj pracownika" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="delete_employee" layoutX="580.0" layoutY="405.0" mnemonicParsing="false" onMouseClicked="#showPESELButtonOnDeleting" prefHeight="30.0" prefWidth="200.0" text="Usuń Pracownika" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="edit_employee" layoutX="580.0" layoutY="445.0" mnemonicParsing="false" onMouseClicked="#showTextFieldsComboBoxButtonOnEditing" prefHeight="31.0" prefWidth="200.0" text="Edytuj Pracownika" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="modify_button" layoutX="580.0" layoutY="485.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="200.0" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="return_button" layoutX="580.0" layoutY="525.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="200.0" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Button>
+                     </children></AnchorPane>
+            </content>
+          </Tab>
+
+            <Tab text="Lista wypożyczalni">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="559.0" prefWidth="816.0">
+                     <children>
+                        <VBox layoutY="-1.0" prefHeight="551.0" prefWidth="800.0">
+                           <children>
+                              <TableView fx:id="show_rentals" prefHeight="279.0" prefWidth="778.0">
+                                 <columns>
+                                    <TableColumn fx:id="r_id" prefWidth="101.0" text="ID" />
+                                    <TableColumn fx:id="r_name" prefWidth="147.0" text="Nazwa" />
+                                    <TableColumn fx:id="r_city" prefWidth="132.0" text="Miasto" />
+                                    <TableColumn fx:id="r_street" prefWidth="149.0" text="Ulica" />
+                                    <TableColumn fx:id="r_workers" prefWidth="130.0" text="Liczba pracowników" />
+                                    <TableColumn fx:id="r_user" prefWidth="139.0" text="Kierownik" />
+                                 </columns>
+                              </TableView>
+                              <TabPane />
+                           </children>
+                        </VBox>
+                        <TextField fx:id="txt_r_name" layoutX="22.0" layoutY="325.0" prefHeight="30.0" prefWidth="550.0" promptText="Nazwa" />
+                        <TextField fx:id="txt_city" layoutX="22.0" layoutY="365.0" prefHeight="30.0" prefWidth="550.0" promptText="Miasto" />
+                        <TextField fx:id="txt_street" layoutX="22.0" layoutY="405.0" prefHeight="30.0" prefWidth="550.0" promptText="Ulica" />
+                        <ComboBox fx:id="rental_managers" layoutX="22.0" layoutY="485.0" prefHeight="30.0" prefWidth="225.0" promptText="Kierownik" />
+                        <TextField fx:id="txt_r_id" editable="false" layoutX="22.0" layoutY="445.0" prefHeight="30.0" prefWidth="150.0" promptText="Id" />
+                        <Button fx:id="add_rental" layoutX="580.0" layoutY="325.0" mnemonicParsing="false" onMouseClicked="#showRentalContentOnAdding" prefHeight="30.0" prefWidth="200.0" text="Dodaj wypozyczalnie" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="delete_rental" layoutX="580.0" layoutY="365.0" mnemonicParsing="false" onMouseClicked="#showNameButtonOnDeleting" prefHeight="30.0" prefWidth="200.0" text="Usun wypozyczalnie" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="edit_rental" layoutX="580.0" layoutY="405.0" mnemonicParsing="false" onMouseClicked="#showContentAndIdOnEditing" prefHeight="30.0" prefWidth="200.0" text="Edytuj wypozyczalnie" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="modify_button2" layoutX="580.0" layoutY="445.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="200.0" text="" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="return_button2" layoutX="580.0" layoutY="485.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="200.0" text="" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Button>
+
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+
+            <Tab text="Lista samochodów">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <VBox layoutX="-1.0" layoutY="-1.0" prefHeight="551.0" prefWidth="800.0">
+                           <children>
+                              <TableView fx:id="show_cars" prefHeight="279.0" prefWidth="772.0">
+                                 <columns>
+                                    <TableColumn fx:id="col_reg" prefWidth="120.0" text="Rejestracja" />
+                                    <TableColumn fx:id="col_brand" prefWidth="120.0" text="Marka" />
+                                    <TableColumn fx:id="col_model" prefWidth="120.0" text="Model" />
+                                    <TableColumn fx:id="col_ava" prefWidth="96.0" text="Dostępność" />
+                                    <TableColumn fx:id="col_rent" prefWidth="178.0" text="Wypożyczalnia" />
+                                    <TableColumn fx:id="col_price" prefWidth="93.0" text="Cena za dzień" />
+                                    <TableColumn fx:id="col_year" prefWidth="71.0" text="Rok" />
+                                 </columns>
+                              </TableView>
+                              <TabPane />
+                           </children>
+                        </VBox>
+                        <TextField fx:id="txt_reg" layoutX="22.0" layoutY="325.0" prefHeight="30.0" prefWidth="550.0" promptText="Rejestracja" />
+                        <TextField fx:id="txt_mark" layoutX="22.0" layoutY="365.0" prefHeight="30.0" prefWidth="550.0" promptText="Marka" />
+                        <TextField fx:id="txt_model" layoutX="22.0" layoutY="405.0" prefHeight="30.0" prefWidth="550.0" promptText="Model" />
+                        <TextField fx:id="txt_year" layoutX="22.0" layoutY="445.0" prefHeight="30.0" prefWidth="550.0" promptText="Rok" />
+                        <TextField fx:id="txt_price" layoutX="22.0" layoutY="485.0" prefHeight="30.0" prefWidth="550.0" promptText="Cena za dzień" />
+                        <TextField fx:id="txt_ava" layoutX="22.0" layoutY="525.0" prefHeight="30.0" prefWidth="550.0" promptText="Dostepnosc (1-tak/0-nie)" />
+                        <ComboBox fx:id="rental_name" layoutX="580.0" layoutY="325.0" prefHeight="30.0" prefWidth="200.0" promptText="Wypozyczalnia" />
+                        <Button layoutX="580.0" fx:id="add_car" layoutY="365.0" mnemonicParsing="false" onMouseClicked="#showCarsContentOnAdding" prefHeight="30.0" prefWidth="200.0" text="Dodaj samochod" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Button>
+                        <Button layoutX="580.0" fx:id="delete_car" layoutY="405.0" mnemonicParsing="false" onMouseClicked="#showRegButtonOnDeleting" prefHeight="30.0" prefWidth="200.0" text="Usun samochod" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Button>
+                        <Button layoutX="580.0" fx:id="edit_car" layoutY="445.0" mnemonicParsing="false" onMouseClicked="#showCarContentOnEditing" prefHeight="30.0" prefWidth="200.0" text="Edytuj samochod" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="modify_button3" layoutX="580.0" layoutY="485.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="200.0" text="" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="return_button3" layoutX="580.0" layoutY="525.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="200.0" text="" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Button>
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+        </tabs>
+      </TabPane>
+      <Label layoutX="765.0" layoutY="14.0" onMouseClicked="#exitApp" text="X" textFill="WHITE">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Button fx:id="logout_button" layoutX="643.0" layoutY="14.0" mnemonicParsing="false" onAction="#logout" prefHeight="27.0" prefWidth="97.0" text="Wyloguj się" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></Button>
+   </children>
+</AnchorPane>
